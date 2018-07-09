@@ -7,6 +7,16 @@ import requests
 logger = logging.getLogger(__name__)
 
 class APOD(Lego):
+    def __init__(self, baseplate, lock, *args, **kwargs):
+        super().__init__(baseplate, lock)
+        config = configparser.ConfigParser()
+        try:
+            config.read('config.ini')
+            self.api_key = config['apod']['api_key']
+        except Exception as e:
+            logger.error(e)
+            self.api_key = '' # if not using config file paste APOD api key here.
+
     def listening_for(self, message):
         if message['text'] is not None:
             try:
@@ -58,12 +68,10 @@ class APOD(Lego):
         return apod_date
 
     def _build_url(self, apod_date):
-        #Add your api key here.
-        apod_api_key = ''
         if apod_date is not None:
-            apod_url = 'https://api.nasa.gov/planetary/apod?api_key=%s&date=%s' % (apod_api_key, apod_date)
+            apod_url = 'https://api.nasa.gov/planetary/apod?api_key=%s&date=%s' % (self.api_key, apod_date)
         else:
-            apod_url = 'https://api.nasa.gov/planetary/apod?api_key=%s' % apod_api_key
+            apod_url = 'https://api.nasa.gov/planetary/apod?api_key=%s' % self.api_key
         return apod_url
 
     def _parse_for_photo(self, apod_json):
