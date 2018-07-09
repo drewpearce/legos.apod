@@ -70,18 +70,19 @@ class APOD(Lego):
         return apod_date
 
     def _build_url(self, apod_date):
-        apod_base = 'https://api.nasa.gov/planetary/apod'
+        apod_url = 'https://api.nasa.gov/planetary/apod'
+        param_connector = '?'
         if apod_date is not None:
-            apod_url = '{}?api_key={}&date={}'.format(
-                apod_base, self.api_key, apod_date)
-        else:
-            apod_url = '{}?api_key={}'.format(apod_base, self.api_key)
+            apod_url += '?date={}'.format(apod_date)
+            param_connector = '&'
+        if self.api_key != '':
+            apod_url += '{}api_key={}'.format(param_connector, self.api_key)
         return apod_url
 
     def _parse_for_photo(self, apod_json):
         apod_json = json.loads(apod_json.text)
         if apod_json:
-            response = '{} \n *Date:* {} \n *Explanation:* {}'.fromat(
+            response = '{} \n *Date:* {} \n *Explanation:* {}'.format(
                 apod_json['hdurl'],
                 apod_json['date'],
                 apod_json['explanation']
