@@ -1,8 +1,8 @@
 # legos.apod
 
-[![Travis](https://img.shields.io/travis/bbriggs/legos.xkcd.svg)]() [![PyPI](https://img.shields.io/pypi/pyversions/legos.xkcd.svg)]() [![PyPI](https://img.shields.io/pypi/v/legos.xkcd.svg)]()
+[![Travis](https://img.shields.io/travis/drewpearce/legos.apod.svg)]() [![PyPI](https://img.shields.io/pypi/pyversions/legos.apod.svg)]() [![PyPI](https://img.shields.io/pypi/v/legos.apod.svg)]()
 
-[![PyPI](https://img.shields.io/pypi/wheel/legos.xkcd.svg)]() [![PyPI](https://img.shields.io/pypi/l/legos.xkcd.svg)]() [![PyPI](https://img.shields.io/pypi/status/legos.xkcd.svg)]()
+[![PyPI](https://img.shields.io/pypi/wheel/legos.apod.svg)]() [![PyPI](https://img.shields.io/pypi/l/legos.apod.svg)]() [![PyPI](https://img.shields.io/pypi/status/legos.apod.svg)]()
 
 Fetch xkcd comics right from chat using this xkcd lego.
 
