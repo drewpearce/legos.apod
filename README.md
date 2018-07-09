@@ -23,7 +23,7 @@ api_key=your-nasa-api-key
 cd into the current directory
 `pip3 install .`
 
-This is a Lego designed for use with [Legobot](https://github.com/bbriggs/Legobot), so you'll get Legobot along with this. To deploy it, import the package and add it to the active legos like so:
+This is a Lego designed for use with [Legobot](https://github.com/Legobot/Legobot), so you'll get Legobot along with this. To deploy it, import the package and add it to the active legos like so:
 
 ```python
 # This is the legobot stuff
