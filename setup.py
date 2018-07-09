@@ -24,6 +24,7 @@ setup(
     license='GPLv3',
     description=description or name,
     author='Drew Pearce',
+    author_meail='drew@cafdfev.com',
     url='https://github.com/drewpearce/' + name,
     install_requires=['legobot>=1.0.1',
                       'requests',
