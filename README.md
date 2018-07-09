@@ -12,6 +12,13 @@ Fetch xkcd comics right from chat using this xkcd lego.
 - `!apod r` or `!apod random` will return a random photo
 - `!apod [yyyy-mm-dd]` will return the photo of corresponding date
 
+### API Key
+The NASA api has pretty strict limits. These can be mitigated by getting an [api key](https://api.nasa.gov/index.html#apply-for-an-api-key). You can add the key by directly inserting it in the code (look in the `__init__` function,) or by creating a config.ini file in the same directory that you run Legobot from. It should look like this:
+```ini
+[apod]
+api_key=your-nasa-api-key
+```
+
 ## Installation
 cd into the current directory
 `pip3 install .`
