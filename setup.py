@@ -19,14 +19,15 @@ description = 'NASA Astonomy Photo of the Day fetcher plugin for Legobot'
 name = 'legos.apod'
 setup(
     name=name,
-    version='0.0.1',
+    version='0.1.0',
     namespace_packages=name.split('.')[:-1],
     license='GPLv3',
     description=description or name,
     author='Drew Pearce',
     url='https://github.com/drewpearce/' + name,
     install_requires=['legobot>=1.0.1',
-                      'requests'
+                      'requests',
+                      'configparser'
                       ],
     classifiers=[
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
