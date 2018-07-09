@@ -1,7 +1,8 @@
-from Legobot.Lego import Lego
-import requests
-import logging
+import configparser
 import json
+from Legobot.Lego import Lego
+import logging
+import requests
 
 logger = logging.getLogger(__name__)
 
