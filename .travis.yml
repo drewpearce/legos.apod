@@ -1,18 +1,18 @@
 language: python
 python:
-  - "3.5"
+- '3.5'
 install:
-  - pip install -r requirements.txt
+- pip install -r requirements.txt
 script:
-  - bandit -r .
-  - flake8 .
+- bandit -r .
+- flake8 .
 deploy:
   provider: pypi
   user: drewpearce
   password:
-    secure: abe2HPMLVB2SL5cF+itBtN4kHAsQnU9OkBwoeQTWCWM50uBCRNDPfKuxsKOEinoyO+BkNzDhb/6gnL2FM3x4xCvGdvae2oA38rhIRDRzuBCW8ivIq8lwHGNLpdcfmKHkbGU9qKR9XwSn/AwhSNgyilf9BxGpqUFExKu+8Nk89j8X2l30FwYfen3POAg/97Fa0VR2FCwucTrX3WwpO3whJ9NaPOK2T512iCzjzOgCux74I7CtRFav+EzOQqhke4TkyAJvX2imZJYnSiedtZC7xY2ColAlhcldmHJNutTKylRrQ0Qt1WA9O6sN+K7FEnf6jrC1jSsHkCGft2AIHZ/WuzAZ9E6cvfvWhF/tONih93pCGZrOQ90l87efKEdFcwdtn0HVKsCAQ5pvFXmnGAJopMMUgO5yWApsQwu9qd2E0bNUgNAojKq7HBoGUJe7LPhS95K60s6n0yal+odCOFro9kIFKNBY4r98cLI6Ta9oKNnyJOHXEjhKYRZPRGQ+0NjcIV+rWjp3UTIgd7dApJdJ9463Neos+Sqf7nt9mfTKScHnEfP6z3bBAiAXxjo3MLgM3CJCzwWR7ckKXqXJx5HOb6+gk7AtPo8UNBfRU9br0R9oxZ3P3vvDVyk5FaGqtykmWEpeWrLUKK++N5Ae2yEccenETc962GUtFCXYgcVbWFU=
+    secure: VajsI8DBqK6FUuKdrMa04Nfdq3tzgZl5aKy6CDSt2vkQJXU3F1wCI2dAPb1TItdSJLZN9MWUaT3/NHUiocCXi5RhlmdUKNntEHAedKOY1wfA3LeGJhuNLaD6004D3Z/oAGcjhXVJ0faILQJrm+XxCYIibmpwlWcV6AjpdHCgRvllPrhoWhJU4k2ZBa61Imp5gOJKk1g5dRthgIyqG6ebFEL+gA6sVATB0IluHKaMJJFD/+GKJu3t8h7uvEBTneqLw9eBqvEBVzJg6yIFwqhmo/+naQP+R1TUklmNrxUopZfl27ny83vemJSjUALXij1CEmACwfGrhNuDnq0G4VBErOiWDXjFU1ULLRFabnH+q0rC9lyhMyyWfwdtME6uRphGu0Jz9YQfQf4T3Cs63Ti5OgQZJ7sicRPcwHQr8v2vIgX8+rDLzsDxdKvKVQUUd9OIXVMitL8RX7tUSX7HsaEDanXCqYsXyM7h6Qik5B3qdXGgt/ya6NO9iNJWJitUT3bOj4R6fekAdkNrFP4w/8owEdsUtsr7vGf0NYoPknVnRTQAzydGW4nXGZyNEhaocfK3rvdcOmjytAPy2ynDcp6f++A4M0ywjxv3EhvK6A1X+uO32ZapTdNXP/N9Algk7gt0V8oAi3OQVvl+oIJMSUWONlx/fU/JJ37yFENUg2RUuVE=
   on:
     tags: true
-    distributions: "sdist bdist_wheel"
+    distributions: sdist bdist_wheel
     branch: master
     repo: drewpearce/legos.apod
