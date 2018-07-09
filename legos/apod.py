@@ -6,6 +6,7 @@ import requests
 
 logger = logging.getLogger(__name__)
 
+
 class APOD(Lego):
     def __init__(self, baseplate, lock, *args, **kwargs):
         super().__init__(baseplate, lock)
@@ -15,7 +16,8 @@ class APOD(Lego):
             self.api_key = config['apod']['api_key']
         except Exception as e:
             logger.error(e)
-            self.api_key = '' # if not using config file paste APOD api key here.
+            # if not using config file paste APOD api key here.
+            self.api_key = ''
 
     def listening_for(self, message):
         if message['text'] is not None:
@@ -68,16 +70,22 @@ class APOD(Lego):
         return apod_date
 
     def _build_url(self, apod_date):
+        apod_base = 'https://api.nasa.gov/planetary/apod'
         if apod_date is not None:
-            apod_url = 'https://api.nasa.gov/planetary/apod?api_key=%s&date=%s' % (self.api_key, apod_date)
+            apod_url = '{}?api_key={}&date={}'.format(
+                apod_base, self.api_key, apod_date)
         else:
-            apod_url = 'https://api.nasa.gov/planetary/apod?api_key=%s' % self.api_key
+            apod_url = '{}?api_key={}'.format(apod_base, self.api_key)
         return apod_url
 
     def _parse_for_photo(self, apod_json):
         apod_json = json.loads(apod_json.text)
         if apod_json:
-            response = '%s \n *Date:* %s \n *Explanation:* %s' % (apod_json['hdurl'], apod_json['date'], apod_json['explanation'])
+            response = '{} \n *Date:* {} \n *Explanation:* {}'.fromat(
+                apod_json['hdurl'],
+                apod_json['date'],
+                apod_json['explanation']
+            )
         else:
             logger.error('Unable to find Photo')
             response = "Unable to find a Photo"
@@ -87,4 +95,5 @@ class APOD(Lego):
         return 'apod'
 
     def get_help(self):
-        return 'Fetch a NASA Astronomy Photo of the Day. Usage: !apod [r|random|date]'
+        return ('Fetch a NASA Astronomy Photo of the Day. '
+                'Usage: !apod [r|random|date]')
