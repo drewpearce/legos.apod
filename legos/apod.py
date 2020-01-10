@@ -10,14 +10,7 @@ logger = logging.getLogger(__name__)
 class APOD(Lego):
     def __init__(self, baseplate, lock, *args, **kwargs):
         super().__init__(baseplate, lock)
-        config = configparser.ConfigParser()
-        try:
-            config.read('config.ini')
-            self.api_key = config['apod']['api_key']
-        except Exception as e:
-            logger.error(e)
-            # if not using config file paste APOD api key here.
-            self.api_key = ''
+        self.api_key = kwargs.get('key', '')
 
     def listening_for(self, message):
         if message['text'] is not None:
