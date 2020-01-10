@@ -13,10 +13,9 @@ Fetch xkcd comics right from chat using this xkcd lego.
 - `!apod [yyyy-mm-dd]` will return the photo of corresponding date
 
 ### API Key
-The NASA api has pretty strict limits. These can be mitigated by getting an [api key](https://api.nasa.gov/index.html#apply-for-an-api-key). You can add the key by directly inserting it in the code (look in the `__init__` function,) or by creating a config.ini file in the same directory that you run Legobot from. It should look like this:
-```ini
-[apod]
-api_key=your-nasa-api-key
+The NASA api has strict limits. These can be mitigated by getting an [api key](https://api.nasa.gov/index.html#apply-for-an-api-key). To add your api_key, send it in with adding your APOD as a baseplate child. It should look like this:
+```
+baseplate_proxy.add_child(APOD, key=your_api_key_goes_here)
 ```
 
 ## Installation
@@ -37,7 +36,7 @@ baseplate = Lego.start(None, lock)
 baseplate_proxy = baseplate.proxy()
 
 # Add your lego
-baseplate_proxy.add_child(APOD)
+baseplate_proxy.add_child(APOD, key=your_api_key_goes_here)
 ```
 
 ## Tweaking
