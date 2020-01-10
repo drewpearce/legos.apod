@@ -1,4 +1,3 @@
-import configparser
 import json
 from Legobot.Lego import Lego
 import logging
@@ -24,7 +23,7 @@ class APOD(Lego):
         logger.debug('Handling message...')
         opts = self._handle_opts(message)
         # Set a default return_val in case we can't handle our crap
-        return_val = '¯\_(ツ)_/¯'
+        return_val = r'¯\_(ツ)_/¯'
 
         apod_date = self._parse_args(message)
 
