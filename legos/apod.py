@@ -12,12 +12,11 @@ class APOD(Lego):
         self.api_key = kwargs.get('key', '')
 
     def listening_for(self, message):
-        if message['text'] is not None:
-            try:
-                return message['text'].split()[0] == '!apod'
-            except Exception as e:
-                logger.error('APOD lego failed to check message text: %s' % e)
-                return False
+        text = message.get('text')
+        if not isinstance(text, str):
+            return False
+
+        return text.lower().startswith('!apod')
 
     def handle(self, message):
         logger.debug('Handling message...')
