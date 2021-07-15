@@ -1,5 +1,2 @@
-bandit
-configparser
-flake8
-legobot>=1.0.1,<=2.0.0
-requests
+legobot>=1.3.6,<=2.0.0
+requests==2.21.0
